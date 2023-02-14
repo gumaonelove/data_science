@@ -4,3 +4,4 @@
 *.iml
 *.xml
 *.pyc
+/toxic message detection api/backend/word2vec.model
