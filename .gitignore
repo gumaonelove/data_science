@@ -5,3 +5,4 @@
 *.xml
 *.pyc
 /toxic message detection api/backend/word2vec.model
+/toxic message detection api/vps/keys.txt
