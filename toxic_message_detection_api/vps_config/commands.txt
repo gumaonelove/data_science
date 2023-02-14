@@ -1,0 +1,35 @@
+apt update;
+apt upgrade;
+adduser gumaonelove;
+
+apt install sudo;
+usermod -aG sudo gumaonelove;
+su gumaonelove;
+sudo apt install git nginx gunicorn supervisor
+
+git clone https://github.com/gumaonelove/chelny_working.git
+
+cd chelny_working
+
+sudo apt-get install python3-venv
+python3 -m venv venv
+
+source venv/bin/activate
+
+pip install -r requirements.txt
+pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
+
+sudo nano /etc/nginx/sites-available/default
+sudo service nginx restart
+
+sudo nano /lib/systemd/system/detection.service
+sudo systemctl daemon-reload
+sudo systemctl enable detection
+sudo systemctl start detection
+sudo systemctl stop detection
+sudo systemctl restart detection
+sudo systemctl status detection
+
+
+
+/home/gumaonelove/chelny_working/venv/bin/python /home/gumaonelove/chelny_working/backend/app.py
